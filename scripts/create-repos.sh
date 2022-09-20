@@ -35,7 +35,7 @@ then
 fi
 
 set +e
-oc version --client | grep '4.7\|4.8'
+oc version --client | grep '4.7\|4.8\|4.9|4.10'
 OC_VERSION_CHECK=$?
 set -e
 if [[ ${OC_VERSION_CHECK} -ne 0 ]]; then
