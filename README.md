@@ -95,7 +95,7 @@ The reference architecture for this GitOps workflow can be found [here](https://
 ### Tasks:
 1. Install the OpenShift GitOps Operator, create a `ClusterRole` and deploy a default instance of ArgoCD.
     ```bash
-    oc apply -f setup/ocp47/
+    oc apply -f setup/ocp4x/
     while ! oc wait crd applications.argoproj.io --timeout=-1s --for=condition=Established  2>/dev/null; do sleep 30; done
     while ! oc wait pod --timeout=-1s --for=condition=Ready -l '!job-name' -n openshift-gitops > /dev/null; do sleep 30; done
     ```
@@ -106,7 +106,7 @@ The reference architecture for this GitOps workflow can be found [here](https://
     ```
 1. Create a custom ArgoCD instance with custom checks
     ```bash
-    oc apply -f setup/ocp47/argocd-instance/ -n openshift-gitops
+    oc apply -f setup/ocp4x/argocd-instance/ -n openshift-gitops
     while ! oc wait pod --timeout=-1s --for=condition=ContainersReady -l app.kubernetes.io/name=openshift-gitops-cntk-server -n openshift-gitops > /dev/null; do sleep 30; done
     ```
 
